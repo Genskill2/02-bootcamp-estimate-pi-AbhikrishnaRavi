@@ -7,7 +7,6 @@ def wallis(n):
     while (i <= n):
         pi *= (4 * (i * i) / ((4 * (i * i) - 1)))
         i += 1
-
     return pi
 
 def monte_carlo(n):
