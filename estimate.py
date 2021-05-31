@@ -10,18 +10,14 @@ def wallis(n):
         i += 1
     return pi
 
-def monte_carlo(n):
-    circle_points= 0
-    square_points= 0
-    for i in range(n**2):
-        x= random.uniform(-1, 1)
-        y= random.uniform(-1, 1)
-        origin_dist= x**2 + y**2
-        if origin_dist<= 1:
-            circle_points+= 1
-        else:
-            square_points+=1
-    pi = 4* circle_points/ square_points
+def monte_carlo(total):
+    inside = 0
+    for i in range(0, total):
+        x2 = random.random()**2
+        y2 = random.random()**2
+        if math.sqrt(x2 + y2) < 1.0:
+            inside += 1
+    pi = (float(inside) / total) * 4
     return pi
 
 class TestWallis(unittest.TestCase):
